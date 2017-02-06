@@ -1,8 +1,8 @@
 version: '2'
 services:
-  nginx:
+  gb-nginx:
     build: ./nginx
-    container_name: nginx
+    container_name: gb-nginx
     volumes:
       - ./logs/nginx/:/var/log/nginx/
       - ./nginx/config/nginx.conf:/etc/nginx/nginx.conf
@@ -13,23 +13,17 @@ services:
       - app_net
     hostname: nginx
     ports:
-      - "80:80"
-      - "443:443"
-    links:
-      - gitbucket
-    depends_on:
-      - gitbucket
+      - "8080:8080"
     command: ["nginx", "-g", "daemon off;"]
-  mariadb:
+  gb-mariadb:
     build: ./mariadb
-    container_name: mariadb
+    container_name: gb-mariadb
     environment:
       MYSQL_ROOT_PASSWORD: mypass
       MYSQL_USER: gitbucket
       MYSQL_PASSWORD: gitbucket
-      URL: jdbc:mysql://localhost/gitbucket?useUnicode=true&characterEncoding=utf8
     volumes_from:
-      - mariadb-storage
+      - gb-mariadb-storage
     volumes:
       - /var/lib/mysql
       - ./mariadb/config/my.cnf:/etc/mysql/my.cnf
@@ -38,27 +32,34 @@ services:
     hostname: mariadb
     expose:
       - "3306"
-    depends_on:
-      - mariadb-storage
     command: mysqld
+  gb-mariadb-storage:
+    build: ./storage/mariadb
+    container_name: gb-mariadb-storage
+    volumes:
+     - ./storage/mariadb/data:/var/lib/mysql    
   gitbucket:
     build: ./gitbucket
     container_name: gitbucket
     environment:
-      DB_PING_USER: gitbucket
-      DB_PING_USER_PASSWORD: gitbucket
+      MYSQL_USER: gitbucket
+      MYSQL_PASSWORD: gitbucket
+      MYSQL_URL: jdbc:mysql://localhost/gitbucket?useUnicode=true&characterEncoding=utf8      
     networks:
       - app_net
     hostname: gitbucket
     expose:
       - "8080"
       - "29418"
-    links:
-      - mariadb
-    depends_on:
-      - mariadb
+    volumes_from:
+      - gb-git-storage
     volumes:
       - ./libexec/:/opt/
+  gb-git-storage:
+    build: ./storage/git
+    container_name: gb-git-storage
+    volumes:
+     - ./storage/git/repositories:/usr/src/git      
 networks:
   app_net:
     driver: bridge
