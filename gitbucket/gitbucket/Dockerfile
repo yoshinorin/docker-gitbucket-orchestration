@@ -2,7 +2,9 @@ FROM java:9-jre
 
 MAINTAINER YoshinoriN
 
-WORKDIR /opt/
-COPY docker-entrypoint.sh /opt/docker-entrypoint.sh
+RUN mkdir -p /usr/libexec/gitbucket
 
-ENTRYPOINT "/opt/docker-entrypoint.sh"
+WORKDIR /usr/libexec/gitbucket
+COPY docker-entrypoint.sh /usr/libexec/gitbucket
+
+ENTRYPOINT "/usr/libexec/gitbucket/docker-entrypoint.sh"

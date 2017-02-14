@@ -54,7 +54,7 @@ services:
     volumes_from:
       - gb-git-storage
     volumes:
-      - ./libexec/:/opt/
+      - ./libexec:/usr/libexec/gitbucket
   gb-git-storage:
     build: ./storage/git
     container_name: gb-git-storage
