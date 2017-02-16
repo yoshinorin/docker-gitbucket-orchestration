@@ -15,7 +15,7 @@ set -f
 set -- $line
 
 if [ $SHA256_CHECKSUM = $1 ];then
-  mv -f gitbucket.war ./libexec/
+  mv -f gitbucket.war ./war/
 else
   echo "[WARN] Doesn't match the check sum."
 fi
