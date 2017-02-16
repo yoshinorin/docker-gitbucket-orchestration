@@ -56,6 +56,7 @@ services:
     depends_on:
       - gitbucket-storage
     volumes_from:
+      - gitbucket-storage
   gitbucket-storage:
     build: ./storage/gitbucket
     container_name: gitbucket-storage
