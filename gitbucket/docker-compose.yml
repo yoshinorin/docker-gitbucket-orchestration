@@ -22,7 +22,7 @@ services:
     container_name: gb-mysql
     environment:
       MYSQL_ROOT_PASSWORD: mypass
-      MYSQL_DATABASE: gitbucket      
+      MYSQL_DATABASE: gitbucket
       MYSQL_USER: gitbucket
       MYSQL_PASSWORD: gitbucket
     volumes_from:
@@ -39,7 +39,7 @@ services:
     build: ./storage/mysql
     container_name: gb-mysql-storage
     volumes:
-     - ./storage/mysql/data:/var/lib/mysql    
+     - ./storage/mysql/data:/var/lib/mysql
   gitbucket:
     build: ./gitbucket
     container_name: gitbucket
@@ -61,7 +61,7 @@ services:
     build: ./storage/gitbucket
     container_name: gitbucket-storage
     volumes:
-     - ./storage/gitbucket/data:/gitbucket  
+     - ./storage/gitbucket/data:/gitbucket
 networks:
   app_net:
     driver: bridge
