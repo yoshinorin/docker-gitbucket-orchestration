@@ -1,4 +1,4 @@
-FROM java:9-jre
+FROM java:8-jre
 
 MAINTAINER YoshinoriN
 
