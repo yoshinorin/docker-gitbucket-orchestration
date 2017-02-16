@@ -29,7 +29,6 @@ services:
       - gb-mysql-storage
     volumes:
       - /var/lib/mysql
-      - ./mysql/config/my.cnf:/etc/mysql/my.cnf
     networks:
       - app_net
     hostname: gb-mysql
