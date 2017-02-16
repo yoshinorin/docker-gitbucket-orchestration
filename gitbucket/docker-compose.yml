@@ -17,36 +17,36 @@ services:
     depends_on:
       - gitbucket
     command: ["nginx", "-g", "daemon off;"]
-  gb-mariadb:
-    build: ./mariadb
-    container_name: gb-mariadb
+  gb-mysql:
+    build: ./mysql
+    container_name: gb-mysql
     environment:
       MYSQL_ROOT_PASSWORD: mypass
       MYSQL_USER: gitbucket
       MYSQL_PASSWORD: gitbucket
     volumes_from:
-      - gb-mariadb-storage
+      - gb-mysql-storage
     volumes:
       - /var/lib/mysql
-      - ./mariadb/config/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/config/my.cnf:/etc/mysql/my.cnf
     networks:
       - app_net
-    hostname: mariadb
+    hostname: mysql
     expose:
       - "3306"
     command: mysqld
-  gb-mariadb-storage:
-    build: ./storage/mariadb
-    container_name: gb-mariadb-storage
+  gb-mysql-storage:
+    build: ./storage/mysql
+    container_name: gb-mysql-storage
     volumes:
-     - ./storage/mariadb/data:/var/lib/mysql    
+     - ./storage/mysql/data:/var/lib/mysql    
   gitbucket:
     build: ./gitbucket
     container_name: gitbucket
     environment:
       MYSQL_USER: gitbucket
       MYSQL_PASSWORD: gitbucket
-      MYSQL_URL: jdbc:mysql://localhost/gitbucket?useUnicode=true&characterEncoding=utf8      
+      MYSQL_URL: jdbc:mysql://gb-mysql/gitbucket?useUnicode=true&characterEncoding=utf8      
     networks:
       - app_net
     hostname: gitbucket
@@ -55,8 +55,8 @@ services:
       - "29418"
     volumes_from:
       - gb-git-storage
-    #volumes:
-    #  - ./libexec:/usr/libexec/gitbucket
+    volumes:
+      - ./config:/gitbucket
   gb-git-storage:
     build: ./storage/git
     container_name: gb-git-storage
