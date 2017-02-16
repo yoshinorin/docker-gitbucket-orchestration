@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cat > /usr/opt/gitbucket/database.conf <<-EOCONF
+cat > /gitbucket/database.conf <<-EOCONF
 db {
   url = "$MYSQL_URL"
   user = "$MYSQL_USER"
