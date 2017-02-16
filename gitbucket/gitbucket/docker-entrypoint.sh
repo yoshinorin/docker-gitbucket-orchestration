@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -xe
 
 cat > /gitbucket/database.conf <<-EOCONF
 db {
@@ -8,4 +8,6 @@ db {
 }
 EOCONF
 
-exec java -jar /usr/opt/gitbucket/gitbucket.war 
+sleep 10
+
+exec java -jar /usr/opt/gitbucket/gitbucket.war
