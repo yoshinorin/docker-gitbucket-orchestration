@@ -14,6 +14,8 @@ services:
     hostname: nginx
     ports:
       - "8080:8080"
+    depends_on:
+      - gitbucket
     command: ["nginx", "-g", "daemon off;"]
   gb-mariadb:
     build: ./mariadb
