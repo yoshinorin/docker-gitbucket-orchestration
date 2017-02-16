@@ -22,6 +22,7 @@ services:
     container_name: gb-mysql
     environment:
       MYSQL_ROOT_PASSWORD: mypass
+      MYSQL_DATABASE: gitbucket      
       MYSQL_USER: gitbucket
       MYSQL_PASSWORD: gitbucket
     volumes_from:
