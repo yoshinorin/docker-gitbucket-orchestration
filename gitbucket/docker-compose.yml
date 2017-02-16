@@ -53,15 +53,14 @@ services:
     expose:
       - "8080"
       - "29418"
+    depends_on:
+      - gitbucket-storage
     volumes_from:
-      - gb-git-storage
+  gitbucket-storage:
+    build: ./storage/gitbucket
+    container_name: gitbucket-storage
     volumes:
-      - ./config:/gitbucket
-  gb-git-storage:
-    build: ./storage/git
-    container_name: gb-git-storage
-    volumes:
-     - ./storage/git/repositories:/usr/src/git      
+     - ./storage/gitbucket/data:/gitbucket  
 networks:
   app_net:
     driver: bridge

@@ -2,5 +2,5 @@ FROM busybox:uclibc
 
 MAINTAINER YoshinoriN
 
-VOLUME /usr/src/git
+VOLUME /gitbucket
 CMD ["/bin/true"]
