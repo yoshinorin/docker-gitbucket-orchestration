@@ -35,7 +35,7 @@ services:
     hostname: gb-mysql
     expose:
       - "3306"
-    command: mysqld
+    command: ["mysqld"]
   gb-mysql-storage:
     build: ./storage/mysql
     container_name: gb-mysql-storage
