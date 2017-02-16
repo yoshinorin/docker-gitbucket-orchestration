@@ -31,7 +31,7 @@ services:
       - ./mysql/config/my.cnf:/etc/mysql/my.cnf
     networks:
       - app_net
-    hostname: mysql
+    hostname: gb-mysql
     expose:
       - "3306"
     command: mysqld
