@@ -128,5 +128,15 @@ You can customize other settings using by `docker-compose.yml`
 
 # Back up
 
-Comming soon ...
+Please execute backup.sh. Back up files are create in buckups directory by tar format.
+
+Below is example.
+
+```txt
+.
+|-- backups
+|   `-- 20170227
+|       |-- 214142_gitbucket_data.tar
+|       `-- 214142_gitbucket_mysql.tar
+```
 
