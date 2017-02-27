@@ -2,6 +2,8 @@
 
 Docker compose for [GitBucket](//github.com/gitbucket/gitbucket).
 
+[日本語の記事はこちら](//yoshinorin.net/2017/02/26/gitbucket-based-on-nginx-mysql-using-by-docker-compose/)
+
 # Architecture
 
 * MySQL
@@ -140,3 +142,38 @@ Below is example.
 |       `-- 214142_gitbucket_mysql.tar
 ```
 
+# Directory Hierarchy
+
+```txt
+.
+|-- backups
+|   `-- 20170227
+|       |-- 214142_gitbucket_data.tar
+|       `-- 214142_gitbucket_mysql.tar
+|-- backup.sh
+|-- docker-compose.yml
+|-- gitbucket
+|   |-- docker-entrypoint.sh
+|   |-- Dockerfile
+|   |-- war
+|   |   `-- gitbucket.war
+|   `-- war_download.sh
+|-- logs
+|   `-- nginx
+|       |-- access.log
+|       `-- error.log
+|-- mysql
+|   `-- Dockerfile
+|-- nginx
+|   |-- config
+|   |   `-- nginx.conf
+|   `-- Dockerfile
+|-- README.md
+`-- storage
+    |-- gitbucket
+    |   |-- data
+    |   `-- Dockerfile
+    `-- mysql
+        |-- data
+        `-- Dockerfile
+```
