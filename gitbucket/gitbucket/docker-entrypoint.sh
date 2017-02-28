@@ -1,4 +1,5 @@
-#!/bin/sh -xe
+#!/bin/sh
+set +e
 
 cat > /gitbucket/database.conf <<-EOCONF
 db {
@@ -8,6 +9,17 @@ db {
 }
 EOCONF
 
-sleep 10
+if [ -n "$MYSQL_USER" ]; then
+  echo `date '+%Y/%m/%d %H:%M:%S'` $0 "[INFO] Connection confriming..."
+  while :
+  do
+    result=`/usr/bin/mysqladmin ping -h gb-mysql -u${MYSQL_USER} -p${MYSQL_PASSWORD}`
+    echo $result;
+    if echo $result|grep 'alive'; then
+      break
+    fi
+    sleep 3;
+  done
+fi
 
 exec java -jar /usr/opt/gitbucket/gitbucket.war
