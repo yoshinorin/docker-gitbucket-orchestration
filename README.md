@@ -4,6 +4,10 @@ Docker compose for [GitBucket](//github.com/gitbucket/gitbucket).
 
 [日本語の記事はこちら](//yoshinorin.net/2017/02/26/gitbucket-based-on-nginx-mysql-using-by-docker-compose/)
 
+# CI
+
+[![CircleCI](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration.svg?style=svg)](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration)
+
 # Architecture
 
 * MySQL
