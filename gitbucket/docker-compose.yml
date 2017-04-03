@@ -30,6 +30,7 @@ services:
       - gb-mysql-storage
     volumes:
       - /var/lib/mysql
+      - ./mysql/config/etc/conf.d/mysql_custom.cnf:/etc/mysql/conf.d/mysql_custom.cnf
     networks:
       - app_net
     hostname: gb-mysql

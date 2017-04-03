@@ -1,0 +1,6 @@
+[mysqld]
+character-set-server = utf8
+default_password_lifetime = 0
+
+[client]
+default-character-set = utf8
