@@ -39,6 +39,10 @@ docker-compose up -d
 
 ## MySQL
 
+### Character set
+
+Default character set is UTF-8.
+
 ### User and password
 
 **User and paswword are decided when build docker image.** You can specify user and password using by `docker-compose.yml`.
@@ -80,6 +84,10 @@ gb-mysql:
 ```
 
 You can connect MariaDB directory using by `3306` port. Also you can change port number.
+
+### Other config
+
+Please change `/gitbucket/mysql/config/etc/conf.d/mysql_custom.cnf`
 
 ## nginx
 
