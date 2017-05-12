@@ -22,4 +22,8 @@ if [ -n "$MYSQL_USER" ]; then
   done
 fi
 
-exec java -jar /usr/opt/gitbucket/gitbucket.war
+if [ "$LOGGING" = 1 ]; then
+  exec java -Dlogback.configurationFile=/gitbucket/config/logback-settings.xml -jar /usr/opt/gitbucket/gitbucket.war
+else
+  exec java -jar /usr/opt/gitbucket/gitbucket.war
+fi

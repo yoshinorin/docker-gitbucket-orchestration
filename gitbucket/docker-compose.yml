@@ -49,6 +49,7 @@ services:
       MYSQL_USER: gitbucket
       MYSQL_PASSWORD: gitbucket
       MYSQL_URL: jdbc:mysql://gb-mysql:3306/gitbucket?useUnicode=true&characterEncoding=utf8
+      LOGGING: 0
     networks:
       - app_net
     hostname: gitbucket
