@@ -65,6 +65,7 @@ services:
     container_name: gitbucket-storage
     volumes:
      - ./storage/gitbucket/data:/gitbucket
+     - ./logs/gitbucket/:/opt/gitbucket/log
 networks:
   app_net:
     driver: bridge
