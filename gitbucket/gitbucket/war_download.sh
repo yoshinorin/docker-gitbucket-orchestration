@@ -1,7 +1,7 @@
 #!/bin/sh
 
-GITBUCKET_VERSION="4.12"
-SHA256_CHECKSUM="230b8e87625c19aec3137eaaf40ee73f45b588044d4c4d355ee291dd7ddcddd2"
+GITBUCKET_VERSION="4.13"
+SHA256_CHECKSUM="fb61cc1b9fc4ea48fc9edfc3847800d8ed4e2fab0ed74f2b63992bf3c863d2a7"
 
 echo "[INFO] warfile downloading..."
 
