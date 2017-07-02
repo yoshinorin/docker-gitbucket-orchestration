@@ -72,6 +72,24 @@ If you change `MYSQL_USER` and `MYSQL_DATABASE`. Please change below settings in
       MYSQL_URL: jdbc:mysql://gb-mysql:3306/gitbucket?useUnicode=true&characterEncoding=utf8
 ```
 
+### Version UP
+
+#### NOTICEI : I confirm work it only `MySQL 5.7.17 to 8.0.1` and GitBucket version is `4.13.0`
+
+1. **Please take backup.** 
+2. Please export gitbucket's data using by `System administration -> Data export/import`.
+
+![](./doc/img/export.png)
+
+3. Remove `gitbucket/storage/mysql/data/*` and bump to MySQL version and execute `docker-compose build`.
+4. Execute `docker-compose up` command.
+5. Copy `gitbucket-export-xxxxxxxx.sql` host os to mysql conrainer. Command is `docker cp gitbucket-export-xxxxxxxx.sql <container id>:<destination directory>
+`
+6. Import `gitbucket-export-xxxxxxxx.sql` in mysql container. Command is `$ mysql -u root -p gitbucket < gitbucket-export-xxxxxxxx.sql`
+
+Please see [Data migration](//github.com/gitbucket/gitbucket/wiki/External-database-configuration).
+
+
 ### Directory connecting
 
 The default setting you can't connect MariaDB directly.
