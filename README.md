@@ -1,12 +1,10 @@
 # docker-gitbucket-orchestration
 
+![](https://img.shields.io/badge/GitBucket-v4.14.0-blue.svg) [![CircleCI](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration.svg?style=svg)](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration)
+
 Docker compose for [GitBucket](//github.com/gitbucket/gitbucket).
 
 [日本語の記事はこちら](//yoshinorin.net/2017/02/26/gitbucket-based-on-nginx-mysql-using-by-docker-compose/)
-
-# CI
-
-[![CircleCI](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration.svg?style=svg)](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration)
 
 # Architecture
 
@@ -72,24 +70,6 @@ If you change `MYSQL_USER` and `MYSQL_DATABASE`. Please change below settings in
       MYSQL_URL: jdbc:mysql://gb-mysql:3306/gitbucket?useUnicode=true&characterEncoding=utf8
 ```
 
-### Version UP
-
-#### NOTICEI : I confirm work it only `MySQL 5.7.17 to 8.0.1` and GitBucket version is `4.13.0`
-
-1. **Please take backup.** 
-2. Please export gitbucket's data using by `System administration -> Data export/import`.
-
-![](./doc/img/export.png)
-
-3. Remove `gitbucket/storage/mysql/data/*` and bump to MySQL version and execute `docker-compose build`.
-4. Execute `docker-compose up` command.
-5. Copy `gitbucket-export-xxxxxxxx.sql` host os to mysql conrainer. Command is `docker cp gitbucket-export-xxxxxxxx.sql <container id>:<destination directory>
-`
-6. Import `gitbucket-export-xxxxxxxx.sql` in mysql container. Command is `$ mysql -u root -p gitbucket < gitbucket-export-xxxxxxxx.sql`
-
-Please see [Data migration](//github.com/gitbucket/gitbucket/wiki/External-database-configuration).
-
-
 ### Directory connecting
 
 The default setting you can't connect MariaDB directly.
@@ -106,6 +86,24 @@ You can connect MariaDB directory using by `3306` port. Also you can change port
 ### Other config
 
 Please change `/gitbucket/mysql/config/etc/conf.d/mysql_custom.cnf`
+
+### Version UP
+
+#### NOTICEI : I confirm work it only `MySQL 5.7.17 to 8.0.1` on GitBucket version is `4.13.0`
+
+1. **Please take backup.** 
+2. Please export gitbucket's data using by `System administration -> Data export/import`.
+
+![](./doc/img/export.png)
+
+3. Remove `gitbucket/storage/mysql/data/*` and bump to MySQL version and execute `docker-compose build`.
+4. Execute `docker-compose up` command.
+5. Copy `gitbucket-export-xxxxxxxx.sql` host os to mysql conrainer. Command is `docker cp gitbucket-export-xxxxxxxx.sql <container id>:<destination directory>
+`
+6. Import `gitbucket-export-xxxxxxxx.sql` in mysql container. Command is `$ mysql -u root -p gitbucket < gitbucket-export-xxxxxxxx.sql`
+
+Please see [Data migration](//github.com/gitbucket/gitbucket/wiki/External-database-configuration).
+
 
 ## nginx
 
