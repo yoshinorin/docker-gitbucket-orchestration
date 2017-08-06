@@ -39,7 +39,7 @@ docker-compose up -d
 
 ### Character set
 
-Default character set is UTF-8.
+Default character set is utf8mb4.
 
 ### User and password
 
