@@ -18,6 +18,7 @@ services:
     depends_on:
       - gitbucket
     command: ["nginx", "-g", "daemon off;"]
+    restart: unless-stopped
   gb-mysql:
     build: ./mysql
     container_name: gb-mysql
@@ -37,11 +38,13 @@ services:
     expose:
       - "3306"
     command: ["mysqld"]
+    restart: unless-stopped
   gb-mysql-storage:
     build: ./storage/mysql
     container_name: gb-mysql-storage
     volumes:
      - ./storage/mysql/data:/var/lib/mysql
+    restart: unless-stopped
   gitbucket:
     build: ./gitbucket
     container_name: gitbucket
@@ -60,12 +63,14 @@ services:
       - gitbucket-storage
     volumes_from:
       - gitbucket-storage
+    restart: unless-stopped
   gitbucket-storage:
     build: ./storage/gitbucket
     container_name: gitbucket-storage
     volumes:
      - ./storage/gitbucket/data:/gitbucket
      - ./logs/gitbucket/:/opt/gitbucket/log
+    restart: unless-stopped
 networks:
   app_net:
     driver: bridge
