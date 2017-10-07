@@ -135,6 +135,7 @@ http {
 You can distable nginx if you want use other webserver.
 
 1. Comment out `gb-nginx` keys in `docker-compose.yml`.
+
 2．Add ports key to `gitbucket` key in `docker-compose.yml`
 
 # Container's time zone
