@@ -130,6 +130,13 @@ http {
     #client_max_body_size xxM;
 ```
 
+### Disable nginx
+
+You can distable nginx if you want use other webserver.
+
+1. Comment out `gb-nginx` keys in `docker-compose.yml`.
+2．Add ports key to `gitbucket` key in `docker-compose.yml`
+
 # Container's time zone
 
 If you want to change container's time zone. Please add `TZ` key to each container using by `docker-compose.yml`.
