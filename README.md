@@ -87,24 +87,6 @@ You can connect MariaDB directory using by `3306` port. Also you can change port
 
 Please change `/gitbucket/mysql/config/etc/conf.d/mysql_custom.cnf`
 
-### Version UP
-
-#### NOTICEI : I confirm work it only `MySQL 5.7.17 to 8.0.1` on GitBucket version is `4.13.0`
-
-1. **Please take backup.** 
-2. Please export gitbucket's data using by `System administration -> Data export/import`.
-
-![](./doc/img/export.png)
-
-3. Remove `gitbucket/storage/mysql/data/*` and bump to MySQL version and execute `docker-compose build`.
-4. Execute `docker-compose up` command.
-5. Copy `gitbucket-export-xxxxxxxx.sql` host os to mysql conrainer. Command is `docker cp gitbucket-export-xxxxxxxx.sql <container id>:<destination directory>
-`
-6. Import `gitbucket-export-xxxxxxxx.sql` in mysql container. Command is `$ mysql -u root -p gitbucket < gitbucket-export-xxxxxxxx.sql`
-
-Please see [Data migration](//github.com/gitbucket/gitbucket/wiki/External-database-configuration).
-
-
 ## nginx
 
 Please change `gitbucket/nginx/config/nginx.conf`.
@@ -176,6 +158,24 @@ Please take buckup befor version up.
 After buckup please deploy new version of `gitbucket.war` to `gitbucket/gitbucket/war`.
 
 Execute `docker-compose build` after deploy new version of `gitbucket.war` to `gitbucket/gitbucket/war`.
+
+# Database version up
+
+#### NOTICEI : I confirm work it only `MySQL 5.7.17 to 8.0.1` on GitBucket version is `4.13.0`
+
+1. **Please take backup.** 
+2. Please export gitbucket's data using by `System administration -> Data export/import`.
+
+![](./doc/img/export.png)
+
+3. Remove `gitbucket/storage/mysql/data/*` and bump to MySQL version and execute `docker-compose build`.
+4. Execute `docker-compose up` command.
+5. Copy `gitbucket-export-xxxxxxxx.sql` host os to mysql conrainer. Command is `docker cp gitbucket-export-xxxxxxxx.sql <container id>:<destination directory>
+`
+6. Import `gitbucket-export-xxxxxxxx.sql` in mysql container. Command is `$ mysql -u root -p gitbucket < gitbucket-export-xxxxxxxx.sql`
+
+Please see [Data migration](//github.com/gitbucket/gitbucket/wiki/External-database-configuration).
+
 
 # Directory Hierarchy
 
