@@ -9,7 +9,7 @@ Docker compose for [GitBucket](//github.com/gitbucket/gitbucket).
 # Architecture
 
 * MySQL
-* nginx
+* nginx (Also you can ignore it)
 
 # Requirements
 
@@ -91,6 +91,16 @@ Please change `/gitbucket/mysql/config/etc/conf.d/mysql_custom.cnf`
 
 Please change `gitbucket/nginx/config/nginx.conf`.
 Also you can change it after build image.
+
+### Ignore nginx
+
+If you want ingnore nginx (for example you have already use other webserver.) please commented out nginx key in docker-compose.yml. And add below key in gitbucket key.
+
+```
+ports:
+  - "8080:8080"
+  - "29418:29418"
+```
 
 ### HTTPS
 
