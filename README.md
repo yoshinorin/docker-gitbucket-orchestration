@@ -170,14 +170,16 @@ Below is example.
 |       `-- 214142_gitbucket_mysql.tar
 ```
 
-# Version Up (GitBucket)
+# Version Up
+
+## GitBucket
 
 Please take buckup befor version up.
 After buckup please deploy new version of `gitbucket.war` to `gitbucket/gitbucket/war`.
 
 Execute `docker-compose build` after deploy new version of `gitbucket.war` to `gitbucket/gitbucket/war`.
 
-# Database version up
+## Database
 
 #### NOTICEI : I confirm work it only `MySQL 5.7.17 to 8.0.1` on GitBucket version is `4.13.0`
 
