@@ -1,6 +1,6 @@
 # docker-gitbucket-orchestration
 
-![](https://img.shields.io/badge/GitBucket-v4.27.0-blue.svg) [![CircleCI](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration.svg?style=svg)](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration)
+![](https://img.shields.io/badge/GitBucket-v4.29.0-blue.svg) [![CircleCI](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration.svg?style=svg)](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration)
 
 Docker compose for [GitBucket](//github.com/gitbucket/gitbucket).
 
