@@ -1,6 +1,6 @@
 # docker-gitbucket-orchestration
 
-![](https://img.shields.io/badge/GitBucket-v4.31.1-blue.svg) [![CircleCI](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration.svg?style=svg)](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration)
+![](https://img.shields.io/badge/GitBucket-v4.32.0-blue.svg) [![CircleCI](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration.svg?style=svg)](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration)
 
 Docker compose for [GitBucket](//github.com/gitbucket/gitbucket).
 
@@ -218,9 +218,7 @@ Please see [Data migration](//github.com/gitbucket/gitbucket/wiki/External-datab
 |-- README.md
 `-- storage
     |-- gitbucket
-    |   |-- data
-    |   `-- Dockerfile
+    |   `-- data
     `-- mysql
-        |-- data
-        `-- Dockerfile
+        `-- data
 ```
