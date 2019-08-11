@@ -1,4 +1,4 @@
-FROM java:8-jre
+FROM adoptopenjdk:11-jre-hotspot
 
 MAINTAINER YoshinoriN
 
