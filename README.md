@@ -1,6 +1,6 @@
 # docker-gitbucket-orchestration
 
-![](https://img.shields.io/badge/GitBucket-v4.32.0-blue.svg) [![CircleCI](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration.svg?style=svg)](https://circleci.com/gh/YoshinoriN/docker-gitbucket-orchestration)
+![](https://img.shields.io/badge/GitBucket-v4.32.0-blue.svg)
 
 Docker compose for [GitBucket](//github.com/gitbucket/gitbucket).
 
@@ -13,7 +13,7 @@ Docker compose for [GitBucket](//github.com/gitbucket/gitbucket).
 
 # Requirements
 
-* Higher than Docker compose 1.6
+* Higher than Docker compose 3
 
 # Overview
 
