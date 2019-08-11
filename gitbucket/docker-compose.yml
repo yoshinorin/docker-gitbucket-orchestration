@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   gb-nginx:
     build: ./nginx
@@ -27,10 +27,8 @@ services:
       MYSQL_DATABASE: gitbucket
       MYSQL_USER: gitbucket
       MYSQL_PASSWORD: gitbucket
-    volumes_from:
-      - gb-mysql-storage
     volumes:
-      - /var/lib/mysql
+      - ./storage/mysql/data:/var/lib/mysql
       - ./mysql/config/etc/conf.d/mysql_custom.cnf:/etc/mysql/conf.d/mysql_custom.cnf
     networks:
       - app_net
@@ -38,12 +36,6 @@ services:
     expose:
       - "3306"
     command: ["mysqld"]
-    restart: unless-stopped
-  gb-mysql-storage:
-    build: ./storage/mysql
-    container_name: gb-mysql-storage
-    volumes:
-     - ./storage/mysql/data:/var/lib/mysql
     restart: unless-stopped
   gitbucket:
     build: ./gitbucket
@@ -59,14 +51,6 @@ services:
     expose:
       - "8080"
       - "29418"
-    depends_on:
-      - gitbucket-storage
-    volumes_from:
-      - gitbucket-storage
-    restart: unless-stopped
-  gitbucket-storage:
-    build: ./storage/gitbucket
-    container_name: gitbucket-storage
     volumes:
      - ./storage/gitbucket/data:/gitbucket
      - ./logs/gitbucket/:/opt/gitbucket/log
