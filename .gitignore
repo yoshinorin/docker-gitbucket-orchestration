@@ -1,3 +1,4 @@
 *.war
 */logs/*
 */storage/*
+*/sslkeys/*
