@@ -1,6 +1,6 @@
 # docker-gitbucket-orchestration
 
-![](https://img.shields.io/badge/GitBucket-v4.36.0-blue.svg)
+![](https://img.shields.io/badge/GitBucket-v4.35.3-blue.svg)
 
 Docker compose for [GitBucket](//github.com/gitbucket/gitbucket).
 
