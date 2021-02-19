@@ -72,7 +72,7 @@ If you change `MYSQL_USER` and `MYSQL_DATABASE`. Please change below settings in
 
 ### Directory connecting
 
-The default setting you can't connect MariaDB directly.
+The default setting you can't connect MySQL directly.
 If you want to connect directly, please add below key in `docker-compose.yml`.
 
 ```yml
@@ -81,7 +81,7 @@ gb-mysql:
       - "3306:3306"
 ```
 
-You can connect MariaDB directory using by `3306` port. Also you can change port number.
+You can connect MySQL directory using by `3306` port. Also you can change port number.
 
 ### Other config
 
