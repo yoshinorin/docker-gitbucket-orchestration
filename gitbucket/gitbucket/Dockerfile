@@ -1,7 +1,5 @@
 FROM adoptopenjdk:11-jre-hotspot
 
-MAINTAINER YoshinoriN
-
 RUN mkdir -p /usr/opt/gitbucket
 
 WORKDIR /usr/opt/gitbucket
